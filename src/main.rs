@@ -1,13 +1,23 @@
-pub mod value;
+pub mod engine;
 
-use value::RcValue;
+use engine::RcValue;
 
 fn main()
 {
-    let a: RcValue<f64> = RcValue::new(10.0.into());
-    let b: RcValue<f64> = RcValue::new(20.0.into());
+    let a: RcValue<f64> =
+    (
+        (
+            Into::<RcValue<f64>>::into(10.0)
+            +
+            20.0.into()
+        )
+        *
+        2.0.into()
+    )
+    -
+    420.0.into();
 
-    let c: RcValue<f64> = a + b;
+    a.back_prop();
 
-    println!("{}", c);
+    println!("{a:#?}");
 }
