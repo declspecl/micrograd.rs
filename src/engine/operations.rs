@@ -1,10 +1,16 @@
 #[derive(Debug, Clone, Copy, PartialEq)]
-pub enum Operations
+pub enum ASexualOperation
+{
+    Relu,
+    Tanh,
+    Neg
+}
+
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub enum SexualOperation
 {
     Add,
     Sub,
     Mul,
-    Div,
-    Relu,
-    Tanh
+    Div
 }

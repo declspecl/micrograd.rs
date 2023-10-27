@@ -35,16 +35,3 @@ impl<T> From<T> for Value<T>
         return Value { data: value, grad: 0.0 };
     }
 }
-
-
-// pub trait Value<T>
-//     where T: Debug + Copy + Clone + PartialEq + Add<Output = T> + Sub<Output = T> + Mul<Output = T> + Div<Output = T>
-// {
-//     type Output;
-// 
-//     fn new(data: T) -> Self::Output;
-//     fn data(&self) -> T;
-//     fn grad(&self) -> f64;
-//     fn parents(&self) -> (Option<Self::Output>, Option<Self::Output>);
-//     fn back_propagate<F>(&mut self, prop_fn: F) where F: FnMut(&mut Self::Output);
-// }

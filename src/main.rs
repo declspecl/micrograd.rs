@@ -4,20 +4,11 @@ use engine::RcValue;
 
 fn main()
 {
-    let a: RcValue<f64> =
-    (
-        (
-            Into::<RcValue<f64>>::into(10.0)
-            +
-            20.0.into()
-        )
-        *
-        2.0.into()
-    )
-    -
-    420.0.into();
+    let a: RcValue<f64> = RcValue::new(200f64);
 
-    a.back_prop();
+    let b = a.clone() * 10f64.into();
 
-    println!("{a:#?}");
+    b.grad_parents();
+
+    println!("{b:#?}");
 }
